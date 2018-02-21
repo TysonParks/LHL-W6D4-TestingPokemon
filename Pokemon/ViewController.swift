@@ -13,7 +13,6 @@ class ViewController: UIViewController {
   var pokemons: [Pokemon] = []
   var networkManager: NetworkerType = NetworkManager()
   
-  
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
