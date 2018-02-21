@@ -18,12 +18,16 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
+    let endpoint = "pokemon"
     var componenets = URLComponents()
     componenets.scheme = "https"
     componenets.host = "pokeapi.co"
-    componenets.path = "/api/v2/pokemon/"
+    var componentsURL = componenets.url
+    componentsURL = componentsURL?.appendingPathComponent("api")
+    componentsURL = componentsURL?.appendingPathComponent("v2")
+    componentsURL = componentsURL?.appendingPathComponent(endpoint)
     
-    guard let url = componenets.url else {
+    guard let url = componentsURL else {
       return
     }
     
