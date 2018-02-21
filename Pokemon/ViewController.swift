@@ -11,15 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
   var pokemons: [Pokemon] = []
+  var networkManager: NetworkerType = NetworkManager()
+  
   
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
     
-    let pokemonAPI = PokemonAPIRequest(networker: NetworkManager())
-    pokemonAPI.getAllPokemon { (pokemons, error) in
+    let pokemonAPI = PokemonAPIRequest(networker: networkManager)
+    pokemonAPI.getAllPokemons { (pokemons, error) in
       if let error = error {
         print("Error: \(error)")
       }

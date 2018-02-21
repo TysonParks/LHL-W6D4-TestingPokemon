@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkManager: Networker {
+class NetworkManager: NetworkerType {
   
   func requestData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)

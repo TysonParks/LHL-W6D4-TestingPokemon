@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Networker {
+protocol NetworkerType {
   func requestData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Swift.Void)
 }
 
@@ -21,9 +21,9 @@ enum PokemonAPIError: Error {
 class PokemonAPIRequest {
   
   var url: URL?
-  var networker: Networker
+  var networker: NetworkerType
   
-  init(networker: Networker) {
+  init(networker: NetworkerType) {
     self.networker = networker
   }
   
@@ -39,7 +39,7 @@ class PokemonAPIRequest {
     return componentsURL
   }
   
-  func getAllPokemon(completionHandler: @escaping ([Pokemon]?, Error?) -> Void) {
+  func getAllPokemons(completionHandler: @escaping ([Pokemon]?, Error?) -> Void) {
     guard let url = buildURL(endpoint: "pokemon") else {
       completionHandler(nil, PokemonAPIError.badURL)
       return
