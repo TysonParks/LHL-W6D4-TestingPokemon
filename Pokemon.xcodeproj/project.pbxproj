@@ -13,6 +13,7 @@
 		22E86A2F203D28BD00651A02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E86A2E203D28BD00651A02 /* Assets.xcassets */; };
 		22E86A32203D28BD00651A02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E86A30203D28BD00651A02 /* LaunchScreen.storyboard */; };
 		22E86A3D203D28BD00651A02 /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86A3C203D28BD00651A02 /* PokemonTests.swift */; };
+		22E86A48203D2AFE00651A02 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86A47203D2AFE00651A02 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		22E86A38203D28BD00651A02 /* PokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E86A3C203D28BD00651A02 /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 		22E86A3E203D28BD00651A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22E86A47203D2AFE00651A02 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				22E86A27203D28BD00651A02 /* AppDelegate.swift */,
 				22E86A29203D28BD00651A02 /* ViewController.swift */,
+				22E86A47203D2AFE00651A02 /* Pokemon.swift */,
 				22E86A2B203D28BD00651A02 /* Main.storyboard */,
 				22E86A2E203D28BD00651A02 /* Assets.xcassets */,
 				22E86A30203D28BD00651A02 /* LaunchScreen.storyboard */,
@@ -201,6 +204,7 @@
 			files = (
 				22E86A2A203D28BD00651A02 /* ViewController.swift in Sources */,
 				22E86A28203D28BD00651A02 /* AppDelegate.swift in Sources */,
+				22E86A48203D2AFE00651A02 /* Pokemon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
