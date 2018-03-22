@@ -36,4 +36,41 @@ class PokemonAPIRequestTests: XCTestCase {
         XCTAssertThrowsError(try pokemonRequest.jsonObject(fromData: data))
     }
     
+    func test_jsonObjectFromData_GivenInvalidJsonData_ShouldThrowAnError() {
+        let networker = MockNetworker()
+        let pokemonRequest = PokemonAPIRequest(networker: networker)
+        
+        let invalidJSON = ""
+        let data = invalidJSON.data(using: .utf8)!
+        XCTAssertThrowsError(try pokemonRequest.jsonObject(fromData: data))
+    }
+    
+    func test_jsonObjectFromData_GivenJSONObjectData_ShouldReturnJSONObject() {
+        let networker = MockNetworker()
+        let pokemonRequest = PokemonAPIRequest(networker: networker)
+        
+        let validJSON = "{\"\":\"\"}"
+        let data = validJSON.data(using: .utf8)!
+        guard let result = try! pokemonRequest.jsonObject(fromData: data) as? [String: String] else {
+            XCTFail("Invalid JSON returned")
+            return
+        }
+        XCTAssertEqual(result, ["": ""])
+    }
+    
+    func test_buildURL_GivenStringEndpoint_ShouldReturnValidURL() {
+        let networker = MockNetworker()
+        let pokemonRequest = PokemonAPIRequest(networker: networker)
+        
+        let validURL = URL(string: "https://pokeapi.co/api/v2/pokemon")
+        let endpoint = "pokemon"
+        guard let result = try! pokemonRequest.buildURL(endpoint: endpoint) as? URL else {
+            XCTFail("Invalid URL returned")
+            return
+        }
+        XCTAssertEqual(result, validURL)
+    }
+    
+    
+
 }
