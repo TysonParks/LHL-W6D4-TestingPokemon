@@ -71,6 +71,19 @@ class PokemonAPIRequestTests: XCTestCase {
         XCTAssertEqual(result, validURL)
     }
     
-    
+    func test_PokemonFromJSON_GivenValidJSON_ShouldReturnPokemon() {
+        let networker = MockNetworker()
+        let pokemonRequest = PokemonAPIRequest(networker: networker)
+        
+        
+        let path = Bundle.main.path(forResource: "Pokemon", ofType: "json")
+        let jsonData = try! NSData(contentsOfFile: path!, options: NSData.ReadingOptions.mappedIfSafe)
+        let jsonObject = try! pokemonRequest.jsonObject(fromData: jsonData as Data)
+        guard let result = try! pokemonRequest.pokemons(fromJSON: jsonObject) as? [Pokemon] else {
+            XCTFail("Invalid Pokemon returned")
+            return
+        }
+//        XCTAssertEqual(result, validURL)
+    }
 
 }

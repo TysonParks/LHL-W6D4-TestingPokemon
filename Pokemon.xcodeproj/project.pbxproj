@@ -17,6 +17,7 @@
 		22E86A4A203DE9AD00651A02 /* PokemonAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86A49203DE9AD00651A02 /* PokemonAPIRequest.swift */; };
 		22E86A4C203DEA3E00651A02 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E86A4B203DEA3E00651A02 /* NetworkManager.swift */; };
 		ADD05473206441F60087FD9B /* PokemonAPIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD05472206441F60087FD9B /* PokemonAPIRequestTests.swift */; };
+		ADD054752064665D0087FD9B /* Pokemon.json in Resources */ = {isa = PBXBuildFile; fileRef = ADD054742064665D0087FD9B /* Pokemon.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		22E86A49203DE9AD00651A02 /* PokemonAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIRequest.swift; sourceTree = "<group>"; };
 		22E86A4B203DEA3E00651A02 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		ADD05472206441F60087FD9B /* PokemonAPIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPIRequestTests.swift; sourceTree = "<group>"; };
+		ADD054742064665D0087FD9B /* Pokemon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pokemon.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		22E86A26203D28BD00651A02 /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				ADD054742064665D0087FD9B /* Pokemon.json */,
 				22E86A27203D28BD00651A02 /* AppDelegate.swift */,
 				22E86A29203D28BD00651A02 /* ViewController.swift */,
 				22E86A47203D2AFE00651A02 /* Pokemon.swift */,
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22E86A32203D28BD00651A02 /* LaunchScreen.storyboard in Resources */,
+				ADD054752064665D0087FD9B /* Pokemon.json in Resources */,
 				22E86A2F203D28BD00651A02 /* Assets.xcassets in Resources */,
 				22E86A2D203D28BD00651A02 /* Main.storyboard in Resources */,
 			);
