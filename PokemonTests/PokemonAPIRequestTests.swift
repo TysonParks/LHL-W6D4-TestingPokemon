@@ -12,9 +12,10 @@ import XCTest
 class MockNetworker: NetworkerType {
     
     func requestData(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        // do nothing for now
+        
+        let jsonData = try! Data(contentsOf: url)
+        completionHandler(jsonData, nil, nil)
     }
-    
 }
 
 class PokemonAPIRequestTests: XCTestCase {
@@ -75,15 +76,18 @@ class PokemonAPIRequestTests: XCTestCase {
         let networker = MockNetworker()
         let pokemonRequest = PokemonAPIRequest(networker: networker)
         
-        
-        let path = Bundle.main.path(forResource: "Pokemon", ofType: "json")
-        let jsonData = try! NSData(contentsOfFile: path!, options: NSData.ReadingOptions.mappedIfSafe)
-        let jsonObject = try! pokemonRequest.jsonObject(fromData: jsonData as Data)
-        guard let result = try! pokemonRequest.pokemons(fromJSON: jsonObject) as? [Pokemon] else {
-            XCTFail("Invalid Pokemon returned")
-            return
+//        let path = Bundle.main.path(forResource: "Pokemon", ofType: "json")
+        let path = Bundle.main.url(forResource: "Pokemon", withExtension: "json")
+        networker.requestData(with: path!) { (data, URLREsponse, error) in
+            let jsonData = data!
+            let jsonObject = try! pokemonRequest.jsonObject(fromData: jsonData as Data)
+            guard let result = try! pokemonRequest.pokemons(fromJSON: jsonObject) as? [Pokemon] else {
+                XCTFail("Invalid Pokemon returned")
+                return
+            }
+            XCTAssertEqual(result.count, 20)
         }
-//        XCTAssertEqual(result, validURL)
     }
-
+    
+    
 }
