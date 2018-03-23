@@ -89,5 +89,19 @@ class PokemonAPIRequestTests: XCTestCase {
         }
     }
     
+    func test_PokemonFromJSON_GivenInvalidJSON_ShouldNotReturnPokemon() {
+        let networker = MockNetworker()
+        let pokemonRequest = PokemonAPIRequest(networker: networker)
+        
+        let invalidJSON:[String : Any] = ["name":1]
+        guard let result = try! pokemonRequest.pokemons(fromJSON: invalidJSON) as? [Pokemon] else {
+            XCTFail("Invalid Pokemon returned")
+            return
+        }
+        XCTAssertEqual(result.count, 0)
+    }
+    
+    
+    
     
 }
